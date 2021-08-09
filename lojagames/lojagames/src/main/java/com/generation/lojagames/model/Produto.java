@@ -33,6 +33,10 @@ public class Produto {
 	@JsonIgnoreProperties("produtos")       //evita recursividade
 	private Categoria categoria;          //chamamos a Classe Categoria (tipo do dado private) e adicionamos a classe em Produtos com o nome de categoria
 
+	@ManyToOne
+	@JsonIgnoreProperties("produto")
+	private Usuario usuario;
+	
 	public long getId() {
 		return id;
 	}
@@ -73,5 +77,12 @@ public class Produto {
 		this.categoria = categoria;
 	}
 	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 	
 }
